@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+    text-align: center;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #c1c1c1;
+    padding: 100px 10px;
+}
+
+.box {
+    position: relative;
+    width: 390px;
+    height: 700px;
+    background: #0069d9;
+    border-radius: 8px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.box::before,
+.box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 420px;
+    background: linear-gradient(0deg, transparent, #ffffff, #ffffff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.form {
+    position: absolute;
+    inset: 2px;
+    border-radius: 8px;
+    background: #ffffff;
+    z-index: 10;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container,
+.button-container-1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.button-container input[type="submit"],
+.button-container-1 input[type="submit"] {
+    border: none;
+    padding: 11px 100px;
+    width: 200px;
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container input[type="submit"] {
+    background: #0069d9;
+    color: #ffffff;
+}
+
+.button-container input[type="submit"]:active {
+    opacity: 0.7;
+}
+
+.button-container-1 input[type="submit"] {
+    border: 1px solid #0069d9;
+    background: #ffffff;
+    color: #0069d9;
+}
+
+.button-container-1 input[type="submit"]:active {
+    opacity: 0.7;
+}
+
+.form h2 {
+    color: #0069d9;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.inputBox {
+    position: relative;
+    width: 300px;
+    margin-top: 35px;
+}
+
+.inputBox input {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #0069d9;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+}
+
+.inputBox span {
+    position: absolute;
+    padding: 10px 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1em;
+    color: #0069d9;
+    pointer-events: none;
+    letter-spacing: 0.05em;
+    transition: 0.05s;
+    opacity: 0.5;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span {
+    transform: translate(-50%, -115%);
+    font-size: 0.9em;
+    opacity: 1;
+}
+
+.inputBox i {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: #0069d9;
+    border-radius: 3px;
+    transition: 0.5s;
+    pointer-events: none;
+    transform: translateX(-50%);
+}
+
+.inputBox input:valid ~ i,
+.inputBox input:focus ~ i {
+    height: 4px;
+}
+
+.button-container-1 a {
+    margin-top: 5px;
+    font-size: 0.75em;
+    color: #0069d9;
+    text-decoration: none;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a {
+    margin: 5px 0;
+    font-size: 0.75em;
+    color: #0069d9;
+    text-decoration: none;
+}
+
+.links a:hover,
+.links a:nth-child(2) {
+    color: #ffffff;
+}

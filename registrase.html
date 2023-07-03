@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="registro.css">
+    <title>Registrarse</title>
+</head>
+<body>
+    <div class="box">
+        <div class="form">
+            <h2>Registrarse</h2>
+            <div class="inputBox">
+                <input type="text" required="required" class="txt" id="username">
+                <span>Nombre de usuario</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" required="required" class="txt" id="password">
+                <span>Contraseña</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="password" required="required" class="txt" id="confirm-password">
+                <span>Confirmar Contraseña</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="email" required="required" class="txt" id="email">
+                <span>Email</span>
+                <i></i>
+            </div>
+            <div class="inputBox">
+                <input type="tel" required="required" class="txt" id="phone">
+                <span>Teléfono</span>
+                <i></i>
+            </div>
+            <div class="links">
+                <a href="#">¿Ya tienes una cuenta?</a>
+            </div>
+            <div class="button-container">
+                <input type="submit" value="Registrarse" class="txt" onclick="submitForm()">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+
+            // Aquí puedes agregar la lógica para procesar los datos del formulario, como enviarlos a un servidor.
+
+            // Por ejemplo, podrías validar los campos y mostrar mensajes de error si es necesario.
+            if (password !== confirmPassword) {
+                alert("Las contraseñas no coinciden.");
+                return;
+            }
+
+            // También puedes hacer una solicitud de AJAX para enviar los datos a un servidor y manejar la respuesta.
+
+            // Aquí puedes agregar el código para enviar los datos del formulario al servidor.
+            // Puedes usar la función fetch() para hacer una solicitud de AJAX a una API o enviar los datos mediante un formulario HTML.
+
+            // Ejemplo de envío de datos mediante una solicitud fetch() a una API (requiere la presencia de una API en el servidor):
+            fetch('url_de_tu_api', {
+                method: 'POST',
+                body: JSON.stringify({
+                    username: username,
+                    password: password,
+                    email: email,
+                    phone: phone
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                // Aquí puedes manejar la respuesta de la API, como mostrar un mensaje de éxito o error al usuario.
+            })
+            .catch(error => {
+                // Aquí puedes manejar los errores en caso de que ocurra algún problema durante la solicitud.
+            });
+        }
+    </script>
+</body>
+</html>
+
